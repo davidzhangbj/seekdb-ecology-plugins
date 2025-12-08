@@ -1,0 +1,126 @@
+---
+description: SeekDB Seekdb OceanBase vector search hybrid search AI function database deployment pyseekdb embedding similarity index
+alwaysApply: true
+globs: '**/*'
+---
+# SeekDB Documentation Rules (URL-based)
+
+**CRITICAL WORKFLOW**: When ANY user question, code request, or context mentions SeekDB, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, similarity search, or database operations, you MUST:
+
+1. **FIRST STEP**: Read the documentation catalog at `.cursor/rules/seekdb-docs-catalog.md`
+2. **SECOND STEP**: Find relevant documentation based on the Description fields in the catalog
+3. **THIRD STEP**: Fetch the actual documentation content from the URL using `web_search` or direct HTTP request
+4. **FOURTH STEP**: Base your answer entirely on the official documentation
+5. **NEVER** provide answers about SeekDB without first consulting the catalog and fetching documentation
+
+## Mandatory Documentation Reference
+
+- **REQUIRED**: Before answering ANY SeekDB-related question, you MUST first read `.cursor/rules/seekdb-docs-catalog.md`
+- **REQUIRED**: Match user questions against the Description fields in the catalog to find relevant documents
+- **REQUIRED**: Fetch the document content from the URL specified in File Path
+- **REQUIRED**: The base URL for all documents is `http://www.oceanbase.ai/docs/`
+- The documentation catalog is the ONLY authoritative index for SeekDB information
+- NEVER guess or use general database knowledge - ALWAYS reference the actual documentation
+
+## Documentation Catalog Structure
+
+The `.cursor/rules/seekdb-docs-catalog.md` contains documentation organized into:
+
+1. **Get Started** (`100.get-started/`): Quick start, deployment, basic operations, feature experiences
+2. **Development Guide** (`200.develop/`): Vector search, hybrid search, AI functions, multi-model support, SDK
+3. **Integrations** (`300.integrations/`): Integration with models (Jina, OpenAI, Qwen) and frameworks (LangChain, LlamaIndex, Dify)
+4. **Guides** (`400.guides/`): Deployment, OBShell, configuration, monitoring
+5. **Tutorials** (`500.tutorials/`): Real-world application cases and examples
+
+## Workflow for SeekDB Questions
+
+**STEP-BY-STEP PROCESS** (MUST FOLLOW IN ORDER):
+
+### Step 1: DETECT
+Identify if the question is about SeekDB, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, or database operations.
+
+### Step 2: READ CATALOG
+Use `read_file` to read `.cursor/rules/seekdb-docs-catalog.md` and locate relevant documentation based on:
+- Section headers (Get Started, Development Guide, Integrations, etc.)
+- Document descriptions that match the user's question
+
+### Step 3: IDENTIFY URLs
+From the catalog, extract the `File Path` URLs of relevant documents. For example:
+- Vector search → `http://www.oceanbase.ai/docs/200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
+- Python SDK → `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
+
+### Step 4: FETCH CONTENT
+Fetch the actual documentation content from the identified URLs using available tools.
+
+### Step 5: ANSWER
+Provide your answer based ONLY on the documentation content, including:
+- Direct quotes or paraphrases from the documentation
+- Code examples from the documentation
+- References to specific documentation URLs
+
+### Step 6: CITE
+Always mention which documentation you referenced using the format:
+"According to SeekDB documentation at `http://www.oceanbase.ai/docs/...`"
+
+## Quick Reference by Topic
+
+When user asks about these topics, use these catalog sections:
+
+| User Topic | Catalog Section | Key Documents |
+|------------|-----------------|---------------|
+| Getting started | Get Started | `10.seekdb-overview.md`, `10.deploy-seekdb-testing-environment.md` |
+| Python SDK | Development Guide > SDK | `10.pyseekdb-sdk-get-started.md`, SDK samples |
+| Vector search | Development Guide > Vector Search | `100.vector-search-intro.md`, `300.vector-similarity-search.md` |
+| Full-text search | Get Started > Client-Server Mode | `40.experience-full-text-indexing.md` |
+| Hybrid search | Development Guide > Hybrid Search | `100.vector-index-hybrid-search.md` |
+| AI functions | Development Guide > AI Function | `200.ai-function.md` |
+| LangChain/LlamaIndex | Integrations > Framework | `100.langchain.md`, `200.llamaindex.md` |
+| MCP/Cursor | Integrations > MCP Client | `100.cursor.md`, MCP Server docs |
+| Deployment | Guides > Deployment | `50.deploy-overview.md` |
+
+## Example of Correct Behavior
+
+### Example 1: Python SDK Connection
+
+**User asks**: "How do I connect to SeekDB using Python?"
+
+**AI should execute**:
+1. `read_file(".cursor/rules/seekdb-docs-catalog.md")` - Read the catalog
+2. Find in catalog: "pyseekdb SDK" section with URL `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
+3. Fetch the documentation content from that URL
+4. Provide answer with code examples from the documentation
+5. Cite: "According to SeekDB documentation at `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`..."
+
+### Example 2: Vector Search
+
+**User asks**: "How to perform vector similarity search in SeekDB?"
+
+**AI should execute**:
+1. Read the catalog and find Vector Search section
+2. Identify relevant URLs:
+   - `http://www.oceanbase.ai/docs/200.develop/100.vector-search/300.vector-similarity-search.md`
+   - `http://www.oceanbase.ai/docs/100.get-started/100.client-server-mode/30.experience-vector-search.md`
+3. Fetch the documentation content
+4. Provide answer with SQL examples and API usage from documentation
+5. Cite the specific documentation URLs used
+
+### Example 3: Hybrid Search with AI Functions
+
+**User asks**: "How to combine vector search with AI functions in SeekDB?"
+
+**AI should execute**:
+1. Read the catalog
+2. Find multiple relevant documents:
+   - Hybrid search: `http://www.oceanbase.ai/docs/200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
+   - AI functions: `http://www.oceanbase.ai/docs/200.develop/300.ai-function/200.ai-function.md`
+3. Fetch both documents
+4. Synthesize an answer based on both sources
+5. Cite all referenced documentation
+
+## Important Notes
+
+- ALWAYS use the documentation catalog as the index for finding relevant documentation
+- The catalog contains descriptions that help match user questions to appropriate documents
+- Document URLs follow the pattern: `http://www.oceanbase.ai/docs/{path}/{filename}.md`
+- For complex questions, you may need to consult multiple documents from different sections
+- Pay attention to the Quick Reference section at the end of the catalog for common use cases
