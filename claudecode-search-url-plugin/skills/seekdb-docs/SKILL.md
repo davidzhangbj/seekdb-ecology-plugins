@@ -1,19 +1,23 @@
 ---
 name: seekdb-docs
-description: Provides documentation and knowledge base for SeekDB database via URL-based access. When users ask about SeekDB topics, automatically locate relevant documentation through the catalog and fetch content from GitHub URLs.
+description: Provides documentation and knowledge base for seekdb database via URL-based access. When users ask about seekdb topics, automatically locate relevant documentation through the catalog and fetch content from GitHub URLs.
 ---
 
-# SeekDB Documentation Skill (URL-based)
+# Seekdb Documentation Skill
 
-This skill provides comprehensive documentation for the SeekDB database through URL-based access. When users ask about SeekDB-related topics, you should use the documentation catalog (`seekdb-docs-catalog.md`) to locate relevant documents and fetch content from the official GitHub repository.
+This skill provides comprehensive documentation for the seekdb database through URL-based access. When users ask about seekdb-related topics, you should use the documentation catalog to locate relevant documents and fetch content from the official GitHub repository.
 
 ## How to Use This Skill
 
-When a user asks about SeekDB, follow these steps:
+When a user asks about seekdb, follow these steps:
 
-### Step 1: Read the Documentation Catalog
+### Step 1: Fetch the Documentation Catalog
 
-First, read the `seekdb-docs-catalog.md` file which contains:
+First, fetch the documentation catalog from the remote URL:
+
+**Catalog URL**: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`
+
+Use `web_search` or direct HTTP request to fetch this catalog, which contains:
 - All available documentation organized by category
 - **File Path**: The relative path to each documentation file
 - **Description**: A brief description of what each document covers
@@ -51,11 +55,11 @@ Provide your answer based ONLY on the fetched documentation content, including:
 ### Step 6: Cite Sources
 
 Always mention which documentation you referenced using the format:
-"According to SeekDB documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/...`"
+"According to seekdb documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/...`"
 
 ## Documentation Categories
 
-The `seekdb-docs-catalog.md` is organized into these main sections:
+The documentation catalog (at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`) is organized into these main sections:
 
 | Category | Description | Common Topics |
 |----------|-------------|---------------|
@@ -85,23 +89,23 @@ When users ask about these topics, look for these entries in the catalog:
 
 ### Example 1: Integration Query
 
-**User**: "I want to enhance the integration between SeekDB and Jina"
+**User**: "I want to enhance the integration between seekdb and Jina"
 
 **Process**:
-1. Read `seekdb-docs-catalog.md`
+1. Fetch the catalog from `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`
 2. Find in catalog: Under "Integrations > Model Integrations", locate entry with description "Jina AI for multimodal search"
 3. Extract file path: `300.integrations/100.model/100.jina.md`
 4. Construct full URL: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/300.integrations/100.model/100.jina.md`
 5. Fetch the documentation content from the URL
 6. Provide answer based on the fetched content
-7. Cite: "According to SeekDB documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/300.integrations/100.model/100.jina.md`..."
+7. Cite: "According to seekdb documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/300.integrations/100.model/100.jina.md`..."
 
 ### Example 2: Development Query
 
-**User**: "How do I use vector search in SeekDB?"
+**User**: "How do I use vector search in seekdb?"
 
 **Process**:
-1. Read `seekdb-docs-catalog.md`
+1. Fetch the catalog from `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`
 2. Find entries: Under "Development Guide > Vector Search", multiple relevant entries:
    - `200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
    - `200.develop/100.vector-search/300.vector-similarity-search.md`
@@ -111,11 +115,11 @@ When users ask about these topics, look for these entries in the catalog:
 
 ### Example 3: Getting Started Query
 
-**User**: "What is SeekDB?"
+**User**: "What is seekdb?"
 
 **Process**:
-1. Read `seekdb-docs-catalog.md`
-2. Find entry: Under "Get Started > SeekDB Overview"
+1. Fetch the catalog from `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`
+2. Find entry: Under "Get Started > seekdb Overview"
 3. Extract file path: `100.get-started/10.overview/10.seekdb-overview.md`
 4. Construct full URL: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/100.get-started/10.overview/10.seekdb-overview.md`
 5. Fetch and read the documentation content
@@ -123,10 +127,10 @@ When users ask about these topics, look for these entries in the catalog:
 
 ### Example 4: Hybrid Search with AI Functions
 
-**User**: "How to combine vector search with AI functions in SeekDB?"
+**User**: "How to combine vector search with AI functions in seekdb?"
 
 **Process**:
-1. Read `seekdb-docs-catalog.md`
+1. Fetch the catalog from `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md`
 2. Find multiple relevant documents:
    - Hybrid search: `200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
    - AI functions: `200.develop/300.ai-function/200.ai-function.md`
@@ -137,7 +141,7 @@ When users ask about these topics, look for these entries in the catalog:
 
 ## Guidelines
 
-- **Always read the catalog first** before attempting to answer SeekDB questions
+- **Always fetch the catalog first** from `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md` before attempting to answer seekdb questions
 - **Match descriptions semantically** - don't just look for exact keyword matches
 - **Construct full URLs correctly** using the base URL + relative file path
 - **Fetch documentation content** before providing answers - never guess or make up information
@@ -147,7 +151,7 @@ When users ask about these topics, look for these entries in the catalog:
 
 ## Important Notes
 
-- The `seekdb-docs-catalog.md` file is the authoritative index for all SeekDB documentation
+- The documentation catalog at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/seekdb-docs-catalog.md` is the authoritative index for all seekdb documentation
 - All file paths in the catalog are relative to the base URL
 - Documentation is hosted at: `https://github.com/oceanbase/seekdb-doc/`
 - The catalog includes a "Quick Reference" section at the end for common use cases
