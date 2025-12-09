@@ -1,0 +1,9 @@
+{
+    "name": "seekdb-url-plugin",
+    "description": "A lightweight Claude skill plugin that provides SeekDB documentation access via URL-based fetching. Enables AI assistants to access SeekDB best practices, SQL syntax, Python SDK patterns, vector search, and hybrid search guidelines by fetching documentation from the official GitHub repository.",
+    "version": "0.1.0",
+    "author": {
+      "name": "David Zhang"
+    }
+  }
+

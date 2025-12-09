@@ -1,25 +1,26 @@
 ---
-description: SeekDB Seekdb OceanBase vector search hybrid search AI function database deployment pyseekdb embedding similarity index
+description: Seekdb OceanBase vector search hybrid search AI function database deployment pyseekdb embedding similarity index
 alwaysApply: true
 globs: '**/*'
 ---
-# SeekDB Documentation Rules (URL-based)
+# Seekdb Documentation Rules (URL-based)
 
-**CRITICAL WORKFLOW**: When ANY user question, code request, or context mentions SeekDB, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, similarity search, or database operations, you MUST:
+**CRITICAL WORKFLOW**: When ANY user question, code request, or context mentions seekdb, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, similarity search, or database operations, you MUST:
 
 1. **FIRST STEP**: Read the documentation catalog at `.cursor/rules/seekdb-docs-catalog.md`
 2. **SECOND STEP**: Find relevant documentation based on the Description fields in the catalog
 3. **THIRD STEP**: Fetch the actual documentation content from the URL using `web_search` or direct HTTP request
 4. **FOURTH STEP**: Base your answer entirely on the official documentation
-5. **NEVER** provide answers about SeekDB without first consulting the catalog and fetching documentation
+5. **NEVER** provide answers about seekdb without first consulting the catalog and fetching documentation
 
 ## Mandatory Documentation Reference
 
-- **REQUIRED**: Before answering ANY SeekDB-related question, you MUST first read `.cursor/rules/seekdb-docs-catalog.md`
+- **REQUIRED**: Before answering ANY seekdb-related question, you MUST first read `.cursor/rules/seekdb-docs-catalog.md`
 - **REQUIRED**: Match user questions against the Description fields in the catalog to find relevant documents
 - **REQUIRED**: Fetch the document content from the URL specified in File Path
-- **REQUIRED**: The base URL for all documents is `http://www.oceanbase.ai/docs/`
-- The documentation catalog is the ONLY authoritative index for SeekDB information
+- **REQUIRED**: The base URL for all documents is `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/`
+- **REQUIRED**: Full URL = Base URL + File Path (relative path from catalog)
+- The documentation catalog is the ONLY authoritative index for seekdb information
 - NEVER guess or use general database knowledge - ALWAYS reference the actual documentation
 
 ## Documentation Catalog Structure
@@ -32,12 +33,12 @@ The `.cursor/rules/seekdb-docs-catalog.md` contains documentation organized into
 4. **Guides** (`400.guides/`): Deployment, OBShell, configuration, monitoring
 5. **Tutorials** (`500.tutorials/`): Real-world application cases and examples
 
-## Workflow for SeekDB Questions
+## Workflow for seekdb Questions
 
 **STEP-BY-STEP PROCESS** (MUST FOLLOW IN ORDER):
 
 ### Step 1: DETECT
-Identify if the question is about SeekDB, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, or database operations.
+Identify if the question is about seekdb, seekdb, OceanBase, vector search, hybrid search, AI functions, embeddings, or database operations.
 
 ### Step 2: READ CATALOG
 Use `read_file` to read `.cursor/rules/seekdb-docs-catalog.md` and locate relevant documentation based on:
@@ -45,9 +46,9 @@ Use `read_file` to read `.cursor/rules/seekdb-docs-catalog.md` and locate releva
 - Document descriptions that match the user's question
 
 ### Step 3: IDENTIFY URLs
-From the catalog, extract the `File Path` URLs of relevant documents. For example:
-- Vector search → `http://www.oceanbase.ai/docs/200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
-- Python SDK → `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
+From the catalog, extract the `File Path` (relative path) of relevant documents. Construct full URL = Base URL + File Path. For example:
+- Vector search → `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
+- Python SDK → `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
 
 ### Step 4: FETCH CONTENT
 Fetch the actual documentation content from the identified URLs using available tools.
@@ -60,7 +61,7 @@ Provide your answer based ONLY on the documentation content, including:
 
 ### Step 6: CITE
 Always mention which documentation you referenced using the format:
-"According to SeekDB documentation at `http://www.oceanbase.ai/docs/...`"
+"According to seekdb documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/...`"
 
 ## Quick Reference by Topic
 
@@ -82,37 +83,37 @@ When user asks about these topics, use these catalog sections:
 
 ### Example 1: Python SDK Connection
 
-**User asks**: "How do I connect to SeekDB using Python?"
+**User asks**: "How do I connect to seekdb using Python?"
 
 **AI should execute**:
 1. `read_file(".cursor/rules/seekdb-docs-catalog.md")` - Read the catalog
-2. Find in catalog: "pyseekdb SDK" section with URL `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
-3. Fetch the documentation content from that URL
+2. Find in catalog: "pyseekdb SDK" section with File Path `200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`
+3. Construct full URL = Base URL + File Path, then fetch the documentation content
 4. Provide answer with code examples from the documentation
-5. Cite: "According to SeekDB documentation at `http://www.oceanbase.ai/docs/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`..."
+5. Cite: "According to seekdb documentation at `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/900.sdk/10.pyseekdb-sdk/10.pyseekdb-sdk-get-started.md`..."
 
 ### Example 2: Vector Search
 
-**User asks**: "How to perform vector similarity search in SeekDB?"
+**User asks**: "How to perform vector similarity search in seekdb?"
 
 **AI should execute**:
 1. Read the catalog and find Vector Search section
-2. Identify relevant URLs:
-   - `http://www.oceanbase.ai/docs/200.develop/100.vector-search/300.vector-similarity-search.md`
-   - `http://www.oceanbase.ai/docs/100.get-started/100.client-server-mode/30.experience-vector-search.md`
+2. Identify relevant File Paths and construct full URLs:
+   - `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/100.vector-search/300.vector-similarity-search.md`
+   - `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/100.get-started/100.client-server-mode/30.experience-vector-search.md`
 3. Fetch the documentation content
 4. Provide answer with SQL examples and API usage from documentation
 5. Cite the specific documentation URLs used
 
 ### Example 3: Hybrid Search with AI Functions
 
-**User asks**: "How to combine vector search with AI functions in SeekDB?"
+**User asks**: "How to combine vector search with AI functions in seekdb?"
 
 **AI should execute**:
 1. Read the catalog
-2. Find multiple relevant documents:
-   - Hybrid search: `http://www.oceanbase.ai/docs/200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
-   - AI functions: `http://www.oceanbase.ai/docs/200.develop/300.ai-function/200.ai-function.md`
+2. Find multiple relevant documents and construct full URLs:
+   - Hybrid search: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
+   - AI functions: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/200.develop/300.ai-function/200.ai-function.md`
 3. Fetch both documents
 4. Synthesize an answer based on both sources
 5. Cite all referenced documentation
@@ -121,6 +122,7 @@ When user asks about these topics, use these catalog sections:
 
 - ALWAYS use the documentation catalog as the index for finding relevant documentation
 - The catalog contains descriptions that help match user questions to appropriate documents
-- Document URLs follow the pattern: `http://www.oceanbase.ai/docs/{path}/{filename}.md`
+- Document URLs follow the pattern: `https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/{path}/{filename}.md`
+- Full URL = Base URL (`https://github.com/oceanbase/seekdb-doc/tree/V1.0.0/en-US/`) + File Path (from catalog)
 - For complex questions, you may need to consult multiple documents from different sections
 - Pay attention to the Quick Reference section at the end of the catalog for common use cases
