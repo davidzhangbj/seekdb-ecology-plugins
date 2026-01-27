@@ -19,8 +19,8 @@ This skill supports both remote and local documentation access with the followin
 
 ### Remote Documentation URLs
 
-- **Base URL**: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/`
-- **Catalog File**: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
+- **Base URL**: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/`
+- **Catalog File**: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
 - **Full Document URL**: Base URL + File Path (from catalog)
 
 ### Local Documentation Paths
@@ -35,7 +35,7 @@ When a user asks about seekdb, follow these steps:
 ### Step 1: Access the Documentation Catalog
 
 **Try Remote First:**
-1. Fetch the remote catalog: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
+1. Fetch the remote catalog: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
 2. If successful, mark this conversation as "using remote docs"
 3. If failed (network error, timeout, etc.), fall back to local catalog: `seekdb-docs/450.reference/1600.seekdb-docs-catalog.md`
 
@@ -65,8 +65,8 @@ The catalog is organized into these main categories:
 Once you've identified the matching entry, construct the full URL or path based on which source you're using:
 
 **If using remote (preferred):**
-- Full URL = `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/` + File Path
-- Example: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/200.develop/100.vector-search/300.vector-similarity-search.md`
+- Full URL = `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/` + File Path
+- Example: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/200.develop/100.vector-search/300.vector-similarity-search.md`
 
 **If using local (fallback):**
 - Local path = `seekdb-docs/` + File Path
@@ -78,10 +78,10 @@ Once you've identified the matching entry, construct the full URL or path based 
 **User**: "How do I use vector search in seekdb?"
 
 **Process**:
-1. Fetch remote catalog: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
+1. Fetch remote catalog: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
 2. Remote access succeeds → mark conversation as "remote mode"
 3. Find entries under "Vector Search" section
-4. Fetch remote doc: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
+4. Fetch remote doc: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/200.develop/100.vector-search/100.vector-search-overview/100.vector-search-intro.md`
 
 ### Example 2: Local Fallback
 **User**: "What is seekdb?"
@@ -100,7 +100,7 @@ Once you've identified the matching entry, construct the full URL or path based 
 1. Already in "remote mode" for this conversation
 2. No need to re-check catalog source
 3. Find entries under "Hybrid Search" section from previously fetched catalog
-4. Fetch remote doc: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
+4. Fetch remote doc: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/200.develop/200.hybrid-search/100.vector-index-hybrid-search.md`
 
 ### Example 4: Integration Query
 **User**: "I want to integrate seekdb with jina"
@@ -122,8 +122,8 @@ Once you've identified the matching entry, construct the full URL or path based 
 ## URL Reference
 
 ### Remote (Primary)
-- **Catalog**: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
-- **Base URL**: `https://raw.githubusercontent.com/oceanbase/seekdb-doc/V1.0.0/en-US/`
+- **Catalog**: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/450.reference/1600.seekdb-docs-catalog.md`
+- **Base URL**: `https://raw.githubusercontent.com/davidzhangbj/seekdb-doc/V1.0.0/en-US/`
 
 ### Local (Fallback)
 - **Catalog**: `seekdb-docs/450.reference/1600.seekdb-docs-catalog.md`
